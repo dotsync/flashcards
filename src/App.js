@@ -1,9 +1,14 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import Users from "./users/pages/Users";
 
 export default function App() {
   return (
-    <div>
-      <h1>Flashcards</h1>
-    </div>
+    <Router>
+      <Route path="/" >
+        <Users />
+      </Route>
+    </Router>
   )
 }
