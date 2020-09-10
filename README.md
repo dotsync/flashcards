@@ -1,4 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Flashcards
+
+*Flashcards* is a single page application that allows the user to **create**, **store**, and **share** flashcards for *learning*.
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ## Available Scripts
 
@@ -41,28 +47,21 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Flashcards was created with these technologies:
+*some may not be listed*
 
-### Code Splitting
+* [Create React App](https://github.com/facebook/create-react-app)
+* [React](https://reactjs.org/docs) - The web framework used
+* [MaterialUI](https://material-ui.com/getting-started/installation/) - The css framework used
+* [Axios](https://www.npmjs.com/package/axios) - The front-end http request handler
+* [Express](https://expressjs.com/2x/guide.html) - The back-end http request handler
+* [Jest](https://jestjs.io/docs/en/tutorial-react) - The javascript testing framework and code coverage
+* [Enzyme](https://github.com/enzymejs/enzyme) - The javascript testing utility
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Contributing
 
-### Analyzing the Bundle Size
+Please read [Git Feature Branch Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) for details on our code of conduct, and the process for submitting pull requests to us.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Authors
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* **Sergei Liddell** - *Initial work* - [dotsync](https://github.com/dotsync)
