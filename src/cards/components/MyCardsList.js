@@ -1,16 +1,11 @@
 import React from 'react'
 
-
+import Flashcard from './Flashcard'
 
 import { makeStyles } from '@material-ui/core/styles';
-import { GridList } from '@material-ui/core/';
+import { GridList, Grid } from '@material-ui/core/';
 import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import { IconButton } from '@material-ui/core';
 
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
-// import tileData from './tileData';
 
 const useStyles = makeStyles((theme) => ({
   cardCarousel: {
@@ -18,37 +13,28 @@ const useStyles = makeStyles((theme) => ({
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
     background: '#00BFFF',
+    margin: '5px',
   },
   card: {
-    background: '#262626',
-    height: '100%',
-    'text-align': 'center'
+    background: 'white',
+    margin: '5px',
+    'border-radius': '25px'
   }
 }));
 
-export default function MyCardsList({ flashcards }) {
+export default function MyCardsList({ myFlashcards }) {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div>
+      {/* Create carousel for flashcards*/}
       <GridList className={classes.cardCarousel} cols={1.5}>
-
-        { (flashcards !== undefined) && flashcards.map((card, i) => (
-          <GridListTile key={card.id}>{card.question}
-
-            <GridListTileBar
-            className={classes.card}
-              title={card.question}
-              actionIcon={
-
-                <IconButton aria-label={`star`}>
-                  <AccessAlarm/>
-                </IconButton>
-
-              }
-            />
-            {console.log('card', card)}
-          </GridListTile>
-
+        {(myFlashcards !== undefined) && myFlashcards.map((card, i) => (
+          // make a GridListTile for each flashcard
+          <Grid container wrap='nowrap'>
+            <GridListTile key={card.id} className={classes.card}>
+              <Flashcard myFlashcards={card} />
+            </GridListTile>
+          </Grid>
         ))}
       </GridList>
     </div>

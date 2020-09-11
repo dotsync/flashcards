@@ -3,20 +3,17 @@ import { render } from '@testing-library/react';
 import MyCardsList from './MyCardsList';
 
 // enzyme config
-import { configure, shallow } from 'enzyme';
+import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-describe('MyCardsList - Basic Tests', () => {
-  // The next two lines keep track of the total amount of tests performed
+describe('MyCardsList Component', () => {
   let totalBasicTestsPerformed = 0;
-  totalBasicTestsPerformed ++;
-  // Test 01
-  test(`It renders words from [component:MyCardsList] [Basic-test-1-of-${totalBasicTestsPerformed}]`, () => {
-    // Increase totalBasicTestsPerformed by one for the test that follows
-    totalBasicTestsPerformed ++;
-    const wrapper = shallow(<MyCardsList />);
-    expect(wrapper.find('h2').text()).toContain('MyCardsList');
-  });
+
+  // unfulfilled tests
+  test('It has 3 carosels', () => {});
+  test('It has a title for the carosel', () => {});
+  test('It has 5 flash cards per carosel', () => {});
+  test('It has a filter component', () => {});
 });

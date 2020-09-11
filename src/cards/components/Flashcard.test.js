@@ -50,14 +50,14 @@ describe('Flashcard Component', () => {
   describe('It renders a complete Flashcard using dummy myFlashcard', () => {
     test('myFlashcard renders a category', () => {
       const component = shallow(<Flashcard myFlashcards={testCard} />)
-      const wrapper = component.find('.makeStyles-category-8')
+      const wrapper = component.find('.makeStyles-category-7')
       // exact match
-      expect(wrapper.text()).toBe('math')
+      expect(wrapper.text()).toBe('Catagory: math')
     });
     test('myFlashcard renders a subject', () => {
       const component = shallow(<Flashcard myFlashcards={testCard} />)
-      const wrapper = component.find('.makeStyles-subject-9')
-      expect(wrapper.text()).toBe('addition')
+      const wrapper = component.find('.makeStyles-subject-8')
+      expect(wrapper.text()).toBe('Subject: addition')
     });
     test('myFlashcard renders a question', () => {
       const component = shallow(<Flashcard myFlashcards={testCard} />)
@@ -67,9 +67,9 @@ describe('Flashcard Component', () => {
   });
   // Checks myFlashcard has buttons
   describe('It has buttons', () => {
-    test('Flashcard renders a button', () => {
-      const component = shallow(<Flashcard />)
-      const wrapper = component.find('button')
+    test('Flashcard renders reveal answer button', () => {
+      const component = shallow(<Flashcard myFlashcards={testCard}/>)
+      const wrapper = component.find('.makeStyles-answerButton-9')
       expect(wrapper.length).toBe(1)
     });
     // test('It has a button to flip card', () => { })
@@ -77,23 +77,23 @@ describe('Flashcard Component', () => {
     // test('It has a button to display hints', () => { })
   });
   // API
-  describe('It renders a flashcard using an API', () => {
-    // let cardFromAPI
-    test('myFlashcard renders a category', () => {
-      const component = shallow(<Flashcard myFlashcards={cardFromAPI} />)
-      const wrapper = component.find('.makeStyles-category-8')
-      // exact match
-      expect(wrapper.text()).toBe('match the api')
-    });
-    test('myFlashcard renders a subject', () => {
-      const component = shallow(<Flashcard myFlashcards={cardFromAPI} />)
-      const wrapper = component.find('.makeStyles-subject-9')
-      expect(wrapper.text()).toBe('match the api')
-    });
-    test('myFlashcard renders a question', () => {
-      const component = shallow(<Flashcard myFlashcards={cardFromAPI} />)
-      const wrapper = component.find('.makeStyles-question-10')
-      expect(wrapper.text()).toBe('match the api')
-    });
-  });
+  // describe('It renders a flashcard using an API', () => {
+  //   // let cardFromAPI
+  //   test('myFlashcard renders a category', () => {
+  //     const component = shallow(<Flashcard myFlashcards={cardFromAPI} />)
+  //     const wrapper = component.find('.makeStyles-category-8')
+  //     // exact match
+  //     expect(wrapper.text()).toBe('match the api')
+  //   });
+  //   test('myFlashcard renders a subject', () => {
+  //     const component = shallow(<Flashcard myFlashcards={cardFromAPI} />)
+  //     const wrapper = component.find('.makeStyles-subject-9')
+  //     expect(wrapper.text()).toBe('match the api')
+  //   });
+  //   test('myFlashcard renders a question', () => {
+  //     const component = shallow(<Flashcard myFlashcards={cardFromAPI} />)
+  //     const wrapper = component.find('.makeStyles-question-10')
+  //     expect(wrapper.text()).toBe('match the api')
+  //   });
+  // });
 });
