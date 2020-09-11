@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MyCardsList({ myFlashcards }) {
   const classes = useStyles();
+  if (!myFlashcards) { return <div className='loading'>Loading flashcard Carousels</div> }
   return (
     <div>
       {/* Create carousel for flashcards*/}
