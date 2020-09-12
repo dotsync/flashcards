@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
   question: {
     'font-size': 30,
   },
+  counter: {
+
+  }
 }));
 
 export default function Flashcard({ myFlashcards }) {
@@ -40,7 +43,7 @@ export default function Flashcard({ myFlashcards }) {
   // data has been recieved, set
   const handleQuestionClick = (e) => {
     e.preventDefault();
-    if (cardFlipped === false) {
+    if (cardFlipped === true) {
       setCounts(counts + 1);
       // UPDATE api
       // flip card
@@ -84,7 +87,7 @@ export default function Flashcard({ myFlashcards }) {
         </Grid>
       </Grid>
       <Grid container>
-        <Grid item xs={12} >Times visited: {counts}</Grid>
+        <Grid item xs={12} className={classes.counter}>{counts}</Grid>
       </Grid>
     </div>
   )
