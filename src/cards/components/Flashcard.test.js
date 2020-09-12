@@ -29,14 +29,13 @@ describe('Flashcard Component', () => {
     test('It renders loading message', () => {
       const component = shallow(<Flashcard />)
       const wrapper = component.find('div')
-      console.log(component.debug())
       expect(wrapper.text()).toBe('no flashcard passed');
     });
   });
   // setup
   const setUp = (props = {}) => {
     // passes a dummy to myFlashcards prop
-    const component = shallow(<Flashcard myFlashcards={testCard} />)
+    const component = shallow(<Flashcard myFlashcards={testCard}/>)
     return component
   }
   // pre drill
@@ -74,11 +73,14 @@ describe('Flashcard Component', () => {
       const wrapper = component.find('.makeStyles-counter-6')
       expect(wrapper.text()).toBe("0")
     })
-    test('Flash card count increments when flipped from question side', () => {
-      const wrapper = component.find('.makeStyles-counter-6')
-      wrapper.simulate('click')
-      expect(wrapper.text()).toBe("1")
+    test('Flash card count increases by 1 when flipped from question side', () => {
+      component.find('.makeStyles-answerButton-4').simulate('click')
+      expect(component.find('.makeStyles-counter-6').text()).toBe('1')
     })
+    // test('Flash card count NOT increase when flipped from answer side', () => {
+    //   component.find('.makeStyles-answerButton-4').simulate('click')
+    //   expect(component.find('.makeStyles-counter-6').text()).toBe('1')
+    // })
 
     // // simulate click
     // test('Flashcard turn count increases when flipped from question side', () => {

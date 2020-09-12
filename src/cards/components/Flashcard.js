@@ -33,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Flashcard({ myFlashcards }) {
   const classes = useStyles();
-  const [counts, setCounts] = useState(0)
-  const [cardFlipped, setMyCardFlipped] = useState(false)
+  const [count, setCount] = useState(0)
+  const [cardFlipped, setMyCardFlipped] = useState(true)
   // const [myCard, setMyCard] = useState(myFlashcards.question)
 
 
@@ -42,16 +42,16 @@ export default function Flashcard({ myFlashcards }) {
   if (!myFlashcards) { return <div>no flashcard passed</div> }
   // data has been recieved, set
   const handleQuestionClick = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     if (cardFlipped === true) {
-      setCounts(counts + 1);
+      setCount(count + 1);
       // UPDATE api
       // flip card
-      setMyCardFlipped(true);
+      setMyCardFlipped(false);
       //setMyCard(myFlashcards.answer)
     } else {
       // don't increase count of looks and flip to question side
-      setMyCardFlipped(false)
+      setMyCardFlipped(true)
       //setMyCard(myFlashcards.question)
     }
     console.log(cardFlipped)
@@ -87,7 +87,7 @@ export default function Flashcard({ myFlashcards }) {
         </Grid>
       </Grid>
       <Grid container>
-        <Grid item xs={12} className={classes.counter}>{counts}</Grid>
+        <Grid item xs={12} className={classes.counter}>{count}</Grid>
       </Grid>
     </div>
   )
