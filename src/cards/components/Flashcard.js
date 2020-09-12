@@ -5,15 +5,13 @@ import { Button, Grid } from '@material-ui/core/';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    'flex-flow': 'column',
-    height: '300px',
-    width: '300px',
+    height: '400px',
+    width: '700px',
     'text-align': 'center',
-    margin: '10px',
   },
   category: {
     'font-size': 12,
+
   },
   subject: {
     'font-size': 12,
@@ -22,12 +20,24 @@ const useStyles = makeStyles((theme) => ({
     'border-radius': '25px',
     'border-style': 'thin',
     'border-width': '5px',
+    'text-align': 'center',
   },
   question: {
     'font-size': 30,
+    'margin-top': '70px',
+    'margin-bottom': '100px'
   },
   counter: {
 
+
+  },
+  border: {
+    // width: '100%', /* Can be in percentage also. */
+    // height: '100%',
+    margin: '0 auto',
+    padding: '10px',
+    position: 'relative',
+    overflow: 'auto',
   }
 }));
 
@@ -54,30 +64,23 @@ export default function Flashcard({ myFlashcards }) {
     // else create flashcard with data
     return (
       <div className={classes.root}>
-        <Grid container>
-          <Grid item xs={6}>
-            <div className={classes.category}>Catagory: {
-              myFlashcards.category}
-            </div>
+        <Grid container spacing={4} className={classes.border}>
+          <Grid item xs={1} className={classes.category}>
+            Catagory: {myFlashcards.category}
           </Grid>
-          <Grid item xs={6}>
-            <div className={classes.subject}>Subject: {
-              myFlashcards.subject}
-            </div>
+          <Grid item xs={9}></Grid>
+          <Grid item xs={1} className={classes.subject}>
+            Subject: {myFlashcards.subject}
           </Grid>
         </Grid>
-        <Grid container>
-          <Grid item xs={12}>
-            <Button className={classes.answerButton} onClick={handleQuestionClick}>
-              {!card ? setCard(myFlashcards.question) :
-              <Grid
-                className={classes.question}>
-                {card}
-              </Grid>
-  }
-            </Button>
-          </Grid>
-        </Grid>
+        <Button className={classes.answerButton} onClick={handleQuestionClick}>
+          {!card ? setCard(myFlashcards.question) :
+            <Grid item
+              className={classes.question}>
+              {card}
+            </Grid>
+          }
+        </Button>
         <Grid container>
           <Grid item xs={12} className={classes.counter}>{count}</Grid>
         </Grid>

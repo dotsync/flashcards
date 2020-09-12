@@ -12,20 +12,26 @@ const useStyles = makeStyles((theme) => ({
     transform: 'translateZ(0)',
     background: '#00BFFF',
     margin: '5px',
-    height: '500px',
+    height: '460px',
     justifyContent: 'space-around',
+    alignItems: 'center'
   },
+border: {
+  display: 'flex',
+  'justify-content': 'center',
+  border: '3px solid green',
+}
 }));
 
 function FlashCardCarousel({ myFlashcards }) {
   const classes = useStyles();
   if (!myFlashcards) { return <div className='loading'>Loading flashcard Carousels</div> } else {
     return (
-      <div>
+      <div> welcome
         {/* Create carousel for flashcards*/}
         <GridList className={classes.cardCarousel} cols={1.5}>
-          <Grid container>
-            <Grid item xs={12}>
+          <Grid container spacing={6}><h3>My flashcard stack 001 - september 11th</h3>
+            <Grid item xs={12} className={classes.border}>
               <MyCardsList myFlashcards={myFlashcards} />
             </Grid>
           </Grid>
