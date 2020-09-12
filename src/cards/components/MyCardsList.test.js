@@ -17,12 +17,4 @@ describe('MyCardsList Component', () => {
       expect(wrapper.text()).toBe('Loading flashcard Carousels');
     });
   })
-  // unfulfilled tests
-  describe('It renders carosels', () => {
-    test('It has a title for the carosel', () => {
-      const component = shallow(<MyCardsList />)
-    });
-    test('It has 5 flash cards per carosel', () => { });
-    test('It has 3 carosels', () => { });
-  })
 });

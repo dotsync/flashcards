@@ -8,15 +8,13 @@ import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-describe('Cards - Basic Tests', () => {
-  // The next two lines keep track of the total amount of tests performed
+describe('Cards Page', () => {
   let totalBasicTestsPerformed = 0;
-  totalBasicTestsPerformed ++;
-  // Test 01
-  test(`It renders words from [component:Cards] [Basic-test-1-of-${totalBasicTestsPerformed}]`, () => {
-    // Increase totalBasicTestsPerformed by one for the test that follows
-    totalBasicTestsPerformed ++;
-    const wrapper = shallow(<Cards />);
-    expect(wrapper.find('h1').text()).toContain('Cards');
-  });
+
+  // unfulfilled tests
+  test('It has a MyCardsList component', () => {})
+  test('It has a MyCardsSearchBar component', () => {})
 });
+// store your own cards, shareing is more than an MVP goal
+// i never get shout outs, why? I keep to myself i dont like people
+

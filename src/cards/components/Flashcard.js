@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Typography, Button, Paper, Grid } from '@material-ui/core/';
+import { Button, Grid } from '@material-ui/core/';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -10,8 +10,7 @@ const useStyles = makeStyles((theme) => ({
     height: '300px',
     width: '300px',
     'text-align': 'center',
-    margin: '5px',
-
+    margin: '10px',
   },
   category: {
     'font-size': 12,
@@ -21,12 +20,11 @@ const useStyles = makeStyles((theme) => ({
   },
   answerButton: {
     'border-radius': '25px',
-    'border-style': 'solid',
-    'border-width': 'thin',
+    'border-style': 'thin',
+    'border-width': '5px',
   },
   question: {
     'font-size': 30,
-
   },
 }));
 
@@ -52,10 +50,10 @@ export default function Flashcard({ myFlashcards }) {
         <Grid container>
           <Grid item xs={12}>
             <Button className={classes.answerButton}>
-              <Typography
+              <Grid
                 className={classes.question} component='h4' variant='h4'>
                 {myFlashcards.question}
-              </Typography>
+              </Grid>
             </Button>
           </Grid>
         </Grid>
