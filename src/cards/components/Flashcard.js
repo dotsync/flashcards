@@ -63,7 +63,6 @@ export default function Flashcard({ myFlashcards }) {
   if (!myFlashcards) { return <div>no flashcard passed</div> } else {
     // else create flashcard with data
     return (
-      // <div className={classes.root}>
       <div className={classes.root}>
         <Grid container spacing={4} className={classes.border}>
           <Grid item xs={1} className={classes.category}>
@@ -86,7 +85,6 @@ export default function Flashcard({ myFlashcards }) {
           <Grid item xs={12} className={classes.counter}>{count}</Grid>
         </Grid>
       </div>
-      // </div>
     )
   }
 }
