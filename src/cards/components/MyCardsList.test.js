@@ -13,7 +13,6 @@ describe('MyCardsList Component', () => {
     test('It renders loading message', () => {
       const component = shallow(<MyCardsList />)
       const wrapper = component.find('.loading')
-      console.log(component.debug())
       expect(wrapper.text()).toBe('Loading flashcard Carousels');
     });
   })

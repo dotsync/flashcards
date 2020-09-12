@@ -26,73 +26,62 @@ const useStyles = makeStyles((theme) => ({
   question: {
     'font-size': 30,
   },
+  counter: {
+
+  }
 }));
 
 export default function Flashcard({ myFlashcards }) {
   const classes = useStyles();
-  const [counts, setCounts] = useState(0)
-  const [cardFlipped, setMyCardFlipped] = useState(false)
+  const [count, setCount] = useState(0)
+  const [questionAsked, setQuestionAsked] = useState(true)
   // const [myCard, setMyCard] = useState(myFlashcards.question)
+  const [card, setCard] = useState(myFlashcards.question)
 
-
-  // check for data
-  if (!myFlashcards) { return <div>no flashcard passed</div> }
-  // data has been recieved, set
-  const handleQuestionClick = (e) => {
-    e.preventDefault();
-    if (cardFlipped === false) {
-      setCounts(counts + 1);
-      // UPDATE api
-      // flip card
-      setMyCardFlipped(true);
-      //setMyCard(myFlashcards.answer)
+  const handleQuestionClick = () => {
+    // e.preventDefault();
+    if (questionAsked === true) {
+      setCount(count + 1);
+      setCard(myFlashcards.answer)
+      setQuestionAsked(false);
     } else {
-      // don't increase count of looks and flip to question side
-      setMyCardFlipped(false)
-      //setMyCard(myFlashcards.question)
+      setQuestionAsked(true)
+      setCard(myFlashcards.question)
     }
-    console.log(cardFlipped)
   }
-
-  // wait for data
-  // if (!myFlashcards) { return <div>no flashcard passed</div> } else {
-  // let myCard = myFlashcards.question
-
-  // else data is loaded so therefor ready to create flashcard
-  return (
-    <div className={classes.root}>
-      <Grid container>
-        <Grid item xs={6}>
-          <div className={classes.category}>Catagory: {
-            myFlashcards.category}
-          </div>
+  // check for data
+  if (!myFlashcards) { return <div>no flashcard passed</div> } else {
+    // else create flashcard with data
+    return (
+      <div className={classes.root}>
+        <Grid container>
+          <Grid item xs={6}>
+            <div className={classes.category}>Catagory: {
+              myFlashcards.category}
+            </div>
+          </Grid>
+          <Grid item xs={6}>
+            <div className={classes.subject}>Subject: {
+              myFlashcards.subject}
+            </div>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <div className={classes.subject}>Subject: {
-            myFlashcards.subject}
-          </div>
+        <Grid container>
+          <Grid item xs={12}>
+            <Button className={classes.answerButton} onClick={handleQuestionClick}>
+              {!card ? setCard(myFlashcards.question) :
+              <Grid
+                className={classes.question}>
+                {card}
+              </Grid>
+  }
+            </Button>
+          </Grid>
         </Grid>
-      </Grid>
-      <Grid container>
-        <Grid item xs={12}>
-          <Button className={classes.answerButton} onClick={handleQuestionClick}>
-            <Grid
-              className={classes.question}>
-              {myFlashcards.question}
-            </Grid>
-          </Button>
+        <Grid container>
+          <Grid item xs={12} className={classes.counter}>{count}</Grid>
         </Grid>
-      </Grid>
-      <Grid container>
-        <Grid item xs={12} >Times visited: {counts}</Grid>
-      </Grid>
-    </div>
-  )
-  // }
+      </div>
+    )
+  }
 }
-/**Notes
- * 1. Use material ui transitions for showing hints
- * After reading docs need to  refactor because cards cant be flipped
- *
- * need to render answers
- */

@@ -26,17 +26,17 @@ describe('Flashcard Component', () => {
 
   // start tests
   describe('It renders without a flashcard prop', () => {
-    test('It renders loading message', () => {
-      const component = shallow(<Flashcard />)
-      const wrapper = component.find('div')
-      console.log(component.debug())
-      expect(wrapper.text()).toBe('no flashcard passed');
-    });
+    // test('It renders loading message', () => {
+    //   const component = shallow(<Flashcard />)
+    //   console.log(component.debug())
+    //   const wrapper = component.find('div')
+    //   expect(wrapper.text()).toBe('no flashcard passed');
+    // });
   });
   // setup
   const setUp = (props = {}) => {
     // passes a dummy to myFlashcards prop
-    const component = shallow(<Flashcard myFlashcards={testCard} />)
+    const component = shallow(<Flashcard myFlashcards={testCard}/>)
     return component
   }
   // pre drill
@@ -48,18 +48,15 @@ describe('Flashcard Component', () => {
   describe('It renders a complete Flashcard using dummy myFlashcard', () => {
     test('myFlashcard renders a category', () => {
       const wrapper = component.find('.makeStyles-category-2')
-      // exact match
-      expect(wrapper.text()).toBe('Catagory: math')
+      expect(wrapper.text()).toBe(`Catagory: ${testCard.category}`)
     });
     test('myFlashcard renders a subject', () => {
       const wrapper = component.find('.makeStyles-subject-3')
-      expect(wrapper.text()).toBe('Subject: addition')
+      expect(wrapper.text()).toBe(`Subject: ${testCard.subject}`)
     });
-
-
     test('myFlashcard renders a question', () => {
       const wrapper = component.find('.makeStyles-question-5')
-      expect(wrapper.text()).toBe('what is 1 plus 2 ?')
+      expect(wrapper.text()).toBe(`${testCard.question}`)
     });
   });
   // Checks myFlashcard has buttons
@@ -68,10 +65,37 @@ describe('Flashcard Component', () => {
       const wrapper = component.find('.makeStyles-answerButton-4')
       expect(wrapper.length).toBe(1)
     });
-    test('Flashcard registers click', () => {
+    test('the button is the question', () => {
       const wrapper = component.find('.makeStyles-answerButton-4')
+      expect(wrapper.text()).toBe("what is 1 plus 2 ?")
+    })
+    test('Flashcard turn count starts at 0', () => {
+      const wrapper = component.find('.makeStyles-counter-6')
       expect(wrapper.text()).toBe("0")
     })
+    test('Flash card count increases by 1 when flipped from question side', () => {
+      component.find('.makeStyles-answerButton-4').simulate('click')
+      expect(component.find('.makeStyles-counter-6').text()).toBe('1')
+    })
+    test('Flash card should flip to answer side when flipped from question side', () => {
+      component.find('.makeStyles-answerButton-4').simulate('click')
+      // should flip to answer side when clicked
+      expect(component.find('.makeStyles-answerButton-4').text()).toBe(testCard.answer)
+    })
+    // test('Flash card count NOT increase when flipped from answer side', () => {
+    //   component.find('.makeStyles-answerButton-4').simulate('click')
+    //   expect(component.find('.makeStyles-counter-6').text()).toBe('1')
+    // })
+
+    // // simulate click
+    // test('Flashcard turn count increases when flipped from question side', () => {
+    //   const wrapper = component.find('.makeStyles-counter-6').simulate('click')
+    //   expect(wrapper.text()).toBe("Times visited: 1")
+    // })
+    // test('Flashcard turn count does NOT increase when flipped from answer side', () => {
+    //   const wrapper = component.find('.makeStyles-counter-6')
+    //   expect(wrapper.text()).toBe("0")
+    // })
     // test('It has a button to like card', () => { })
     // test('It has a button to display hints', () => { })
   });

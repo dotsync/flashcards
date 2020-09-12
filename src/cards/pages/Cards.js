@@ -4,7 +4,7 @@ import FlashCardCarousel from '../components/FlashCardCarousel';
 
 export default function Cards() {
   // default value is mock data
-  const [myFlashcards, setMyFlashcards] = useState([MOCK_FLASHCARDS])
+  const [myFlashcards, setMyFlashcards] = useState(MOCK_FLASHCARDS)
   return (
     <div>
       <h1>Cards</h1>
@@ -19,7 +19,7 @@ const MOCK_FLASHCARDS = [
     createdAt: "2018-8-3 11:12:40",
     category: 'math',
     subject: 'addition',
-    question: 'what is 1 plus 2?',
+    question: 'What is 1 + 2 ?',
     answer: '3',
     multipleChoice: ['2', '3', '4', '5']
   },
@@ -28,7 +28,7 @@ const MOCK_FLASHCARDS = [
     createdAt: "2020-1-1 10:11:40",
     category: 'math',
     subject: 'divison',
-    question: 'what is 5 divided by 5?',
+    question: 'What is 5 / 5 ?',
     answer: '1',
     multipleChoice: ['.5', '10', '1', '2']
   },
@@ -37,7 +37,7 @@ const MOCK_FLASHCARDS = [
     createdAt: "2016-8-3 11:12:40",
     category: 'math',
     subject: 'multiplication',
-    question: 'what is 2 times 2?',
+    question: 'What is 2 * 2 ?',
     answer: '4',
     multipleChoice: ['2', '3', '4', '5']
   },
@@ -46,7 +46,7 @@ const MOCK_FLASHCARDS = [
     createdAt: "1990-1-1 10:11:40",
     category: 'math',
     subject: 'subtraction',
-    question: 'what is 15 - 5?',
+    question: 'What is 15 - 5 ?',
     answer: '10',
     multipleChoice: ['5', '10', '15', '20']
   }
