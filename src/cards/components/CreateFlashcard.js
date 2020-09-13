@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, TextField } from '@material-ui/core'
+import { Button, TextField, Form } from '@material-ui/core'
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -21,32 +21,47 @@ export default function CreateFlashcard() {
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
 
-  const handleCatagoryChange = (event) => {
-    setCatagory(event.target.value);
+  const handleCatagoryChange = (e) => {
+    setCatagory(e.target.value);
+  };
+  const handleSubjectChange = (e) => {
+    setSubject(e.target.value);
+  };
+  const handleQuestionChange = (e) => {
+    setQuestion(e.target.value);
+  };
+  const handleAnswerChange = (e) => {
+    setAnswer(e.target.value);
   };
 
   const handleSubmission = (e) => {
+    if (catagory.length < 3 || subject.length < 3 || question.length < 5 || answer.length < 10) {
+      console.log('FLASHCARD COULD NOT POST BECAUSE A TEXT FIELD WAS TOO SHORT')
+      return;
+    }
     axios.post('http://localhost:3001/flashcards/list',
       {
-        flashcardId: "99",
-        createdAt: "Sun Sep 99 2020 08:51:54 GMT-0600 (Mountain Daylight Time)",
-        category: "TESTDUMMY",
-        subject: "Commonly asked JavaScript Interview Questions",
-        question: "What is JavaScript(JS)?",
-        answer: "JavaScript is a lightweight, interpreted programming language with object-oriented capabilities that allows you to build interactivity into otherwise static HTML pages.",
-        amountOfFlips: "0"
-      }
-    )
+        catagory,
+        subject,
+        question,
+        answer,
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
-
   return (
     <div className={classes.root} noValidate autoComplete="off">
-      <form className={classes.form}>Form
+      <Form className={classes.form}>Form
         <TextField className={classes.catagory}
           required
           id="catagory"
           label="catagory"
-          placeholder={catagory}
+          value={catagory}
+          onChange={handleCatagoryChange}
           multiline
           variant="outlined"
         />
@@ -54,7 +69,8 @@ export default function CreateFlashcard() {
           required
           id="subject"
           label="subject"
-          // placeholder="Placeholder"
+          value={subject}
+          onChange={handleSubjectChange}
           multiline
           variant="outlined"
         />
@@ -63,7 +79,8 @@ export default function CreateFlashcard() {
           fullWidth
           id="question"
           label="question"
-          // placeholder="Placeholder"
+          value={question}
+          onChange={handleQuestionChange}
           multiline
           variant="outlined"
         />
@@ -72,12 +89,13 @@ export default function CreateFlashcard() {
           fullWidth
           id="answer"
           label="answer"
-          // placeholder="Placeholder"
+          value={answer}
+          onChange={handleAnswerChange}
           multiline
           variant="outlined"
         />
         <Button onClick={handleSubmission}>add flashcard</Button>
-      </form>
+      </Form>
     </div>
   );
 }
