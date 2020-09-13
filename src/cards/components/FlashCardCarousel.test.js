@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import MyCardsList from './MyCardsList';
+import FlashcardsList from './FlashcardsList';
 
 // enzyme config
 import { configure, shallow } from 'enzyme';

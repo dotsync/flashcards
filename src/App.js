@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 
 // routes
 import Users from "./users/pages/Users";
-import Cards from "./cards/pages/Cards";
+//stdy
+import Cards from "./cards/pages/Study";
 
 export default function App() {
   return (
@@ -11,7 +12,8 @@ export default function App() {
     <h1>Flashcards</h1>
     <Router>
       <Switch>
-      <Route path="/cards" >
+      {/* //stdy */}
+      <Route path="/study" >
         <Cards />
       </Route>
       <Route path="/users" >
