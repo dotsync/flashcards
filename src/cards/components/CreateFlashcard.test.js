@@ -27,21 +27,34 @@ describe('CreateFlashcard component', () => {
   });
   describe('Form', () => {
     test('should render a form', () => {
-      const wrapper = component.find('makeStyles-create-flashcard-form')
+      console.log('FORM', component.debug())
+      const wrapper = component.find('.makeStyles-form-2');
       expect(wrapper.text()).toBe('Form');
     });
-    test('should have 3 input fields', () => {
-      const wrapper = component.find('makeStyles-create-flashcard-form')
-      expect(wrapper.length).toBe(3);
+    test('should have a catagory field', () => {
+      const wrapper = component.find('.makeStyles-catagory-3');
+      expect(wrapper.length).toBe(1);
+    });
+    test('should have a subject field', () => {
+      const wrapper = component.find('.makeStyles-subject-4');
+      expect(wrapper.length).toBe(1);
+    });
+    test('should have a question field', () => {
+      const wrapper = component.find('.makeStyles-question-5');
+      expect(wrapper.length).toBe(1);
+    });
+    test('should have a question field', () => {
+      const wrapper = component.find('.makeStyles-answer-6');
+      expect(wrapper.length).toBe(1);
     });
   });
   describe('Button', () => {
     test('should render a button', () => {
-      const wrapper = component.find('.makeStyles-create-flashcard-button');
+      const wrapper = component.find('.makeStyles-button-7');
       expect(wrapper.length).toBe(1);
     });
     test('should say \'add flashcard!\'', () => {
-      const wrapper = component.find('makeStyles-create-flashcard-button');
+      const wrapper = component.find('makeStyles-button-7');
       expect(wrapper.text()).toBe('Add flashcard!');
     });
   });
