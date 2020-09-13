@@ -45,6 +45,13 @@ export default function CreateFlashcard() {
           multiline
           variant="outlined"
         />
+        <TextField className={classes.answer}
+          id="answer"
+          label="answer"
+          // placeholder="Placeholder"
+          multiline
+          variant="outlined"
+        />
       </form>
     </div>
   );
