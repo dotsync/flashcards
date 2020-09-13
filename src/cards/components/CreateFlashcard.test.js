@@ -24,7 +24,17 @@ describe('CreateFlashcard component', () => {
   let component
   beforeEach(() => {
     component = setUp();
-  })
+  });
+  describe('Form', () => {
+    test('should render a form', () => {
+      const wrapper = component.find('makeStyles-create-flashcard-form')
+      expect(wrapper.text()).toBe('Form');
+    });
+    test('should have 3 input fields', () => {
+      const wrapper = component.find('makeStyles-create-flashcard-form')
+      expect(wrapper.length).toBe(3);
+    });
+  });
   describe('Button', () => {
     test('should render a button', () => {
       const wrapper = component.find('.makeStyles-create-flashcard-button');
@@ -32,16 +42,7 @@ describe('CreateFlashcard component', () => {
     });
     test('should say \'add flashcard!\'', () => {
       const wrapper = component.find('makeStyles-create-flashcard-button');
-      expect(wrapper.text()).toBe('Add flashcard!')
-    })
-
-  });
-  describe('Form', () => {
-    test('should render a form', () => {
-
-    });
-    test('should have 3 input fields', () => {
-
+      expect(wrapper.text()).toBe('Add flashcard!');
     });
   });
 });
