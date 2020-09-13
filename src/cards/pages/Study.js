@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import FlashCardCarousel from '../components/FlashCardCarousel';
+import CreateFlashcard from '../components/CreateFlashcard';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core/';
@@ -8,7 +9,7 @@ import GridList from '@material-ui/core/GridList';
 
 const useStyles = makeStyles((theme) => ({
   study: {
-    border: '3px solid red',
+    // border: '3px solid red',
     width: '100%',
     height: '80%',
     margin: 'auto',
@@ -34,16 +35,11 @@ export default function Study() {
     fetchReviews();
   }, []);
 
-
   return (
     <div className={classes.study}>
       <h1>Study</h1>
-      {/**CreateFlashcard
-       * will post a request with proper contents to the server,
-       * The server has already been set up to respond, the are no requirments yet.
-       * Input will be req.body. Output will be a success message */}
-      {console.log('myFlashcards', myFlashcards)}
       <FlashCardCarousel myFlashcards={myFlashcards} />
+      <CreateFlashcard />
     </div>
   )
 }

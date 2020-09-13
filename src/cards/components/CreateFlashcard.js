@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Grid, TextField } from '@material-ui/core'
+import { Button, TextField } from '@material-ui/core'
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -10,48 +11,90 @@ const useStyles = makeStyles((theme) => ({
     // border: '3px solid blue',
   },
   catagory: {
-    border: '3px sold red',
+    // border: '3px solid red',
   },
 }));
 export default function CreateFlashcard() {
   const classes = useStyles();
-  const [value, setValue] = React.useState('hello world');
+  const [catagory, setCatagory] = useState('');
+  const [subject, setSubject] = useState('');
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
+  const handleCatagoryChange = (e) => {
+    setCatagory(e.target.value);
+  };
+  const handleSubjectChange = (e) => {
+    setSubject(e.target.value);
+  };
+  const handleQuestionChange = (e) => {
+    setQuestion(e.target.value);
+  };
+  const handleAnswerChange = (e) => {
+    setAnswer(e.target.value);
   };
 
+  const handleSubmission = (e) => {
+    if (catagory.length < 3 || subject.length < 3 || question.length < 5 || answer.length < 10) {
+      console.log('FLASHCARD COULD NOT POST BECAUSE A TEXT FIELD WAS TOO SHORT')
+      return;
+    }
+    axios.post('http://localhost:3001/flashcards/list',
+      {
+        catagory,
+        subject,
+        question,
+        answer,
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
   return (
     <div className={classes.root} noValidate autoComplete="off">
       <form className={classes.form}>Form
         <TextField className={classes.catagory}
+          required
           id="catagory"
           label="catagory"
-          // placeholder="Placeholder"
+          value={catagory}
+          onChange={handleCatagoryChange}
           multiline
           variant="outlined"
         />
         <TextField className={classes.subject}
+          required
           id="subject"
           label="subject"
-          // placeholder="Placeholder"
+          value={subject}
+          onChange={handleSubjectChange}
           multiline
           variant="outlined"
         />
         <TextField className={classes.question}
+          required
+          fullWidth
           id="question"
           label="question"
-          // placeholder="Placeholder"
+          value={question}
+          onChange={handleQuestionChange}
           multiline
           variant="outlined"
         />
         <TextField className={classes.answer}
+          required
+          fullWidth
           id="answer"
           label="answer"
-          // placeholder="Placeholder"
+          value={answer}
+          onChange={handleAnswerChange}
           multiline
           variant="outlined"
         />
+        <Button onClick={handleSubmission}>add flashcard</Button>
       </form>
     </div>
   );

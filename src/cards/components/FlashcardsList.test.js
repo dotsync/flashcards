@@ -11,9 +11,9 @@ configure({ adapter: new Adapter() });
 describe('FlashcardsList Component', () => {
   describe('It works if myFlashcards prop is undefined', () => {
     test('It renders loading message', () => {
-      const component = shallow(<FlashcardsList />)
-      const wrapper = component.find('.loading')
+      const component = shallow(<FlashcardsList />);
+      const wrapper = component.find('.loading');
       expect(wrapper.text()).toBe('Loading flashcard Carousels');
     });
-  })
+  });
 });
