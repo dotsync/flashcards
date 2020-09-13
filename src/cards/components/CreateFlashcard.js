@@ -25,7 +25,7 @@ export default function CreateFlashcard() {
     <div className={classes.root} noValidate autoComplete="off">
       <form className={classes.form}>Form
         <TextField className={classes.catagory}
-          id="outlined-textarea"
+          id="catagory"
           label="catagory"
           // placeholder="Placeholder"
           multiline
