@@ -71,11 +71,11 @@ describe('Flashcard Component', () => {
     })
     test('Flashcard turn count starts at 0', () => {
       const wrapper = component.find('.makeStyles-counter-6')
-      expect(wrapper.text()).toBe("0")
+      expect(wrapper.text()).toBe('You flipped the card this many times: 0')
     })
     test('Flash card count increases by 1 when flipped from question side', () => {
       component.find('.makeStyles-answerButton-4').simulate('click')
-      expect(component.find('.makeStyles-counter-6').text()).toBe('1')
+      expect(component.find('.makeStyles-counter-6').text()).toBe('You flipped the card this many times: 1')
     })
     test('Flash card should flip to answer side when flipped from question side', () => {
       component.find('.makeStyles-answerButton-4').simulate('click')
