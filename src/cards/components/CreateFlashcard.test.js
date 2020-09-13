@@ -32,19 +32,19 @@ describe('CreateFlashcard component', () => {
       expect(wrapper.text()).toBe('Form');
     });
     test('should have a catagory field', () => {
-      const wrapper = component.find('.makeStyles-catagory-3');
+      const wrapper = component.find('#catagory');
       expect(wrapper.length).toBe(1);
     });
     test('should have a subject field', () => {
-      const wrapper = component.find('.makeStyles-subject-4');
+      const wrapper = component.find('#subject');
       expect(wrapper.length).toBe(1);
     });
     test('should have a question field', () => {
-      const wrapper = component.find('.makeStyles-question-5');
+      const wrapper = component.find('#question');
       expect(wrapper.length).toBe(1);
     });
-    test('should have a question field', () => {
-      const wrapper = component.find('.makeStyles-answer-6');
+    test('should have a answer field', () => {
+      const wrapper = component.find('#answer');
       expect(wrapper.length).toBe(1);
     });
   });
