@@ -38,6 +38,10 @@ export default function Study() {
   return (
     <div className={classes.study}>
       <h1>Study</h1>
+      {/**CreateFlashcard
+       * will post a request with proper contents to the server,
+       * The server has already been set up to respond, the are no requirments yet.
+       * Input will be req.body. Output will be a success message */}
       {console.log('myFlashcards', myFlashcards)}
       <FlashCardCarousel myFlashcards={myFlashcards} />
     </div>
