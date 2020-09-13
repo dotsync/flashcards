@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Grid, TextField } from '@material-ui/core'
+import { Button, TextField } from '@material-ui/core'
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -10,16 +11,33 @@ const useStyles = makeStyles((theme) => ({
     // border: '3px solid blue',
   },
   catagory: {
-    border: '3px sold red',
+    // border: '3px solid red',
   },
 }));
 export default function CreateFlashcard() {
   const classes = useStyles();
-  const [value, setValue] = React.useState('hello world');
+  const [catagory, setCatagory] = useState('');
+  const [subject, setSubject] = useState('');
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
+  const handleCatagoryChange = (event) => {
+    setCatagory(event.target.value);
   };
+
+  const handleSubmission = (e) => {
+    axios.post('http://localhost:3001/flashcards/list',
+      {
+        flashcardId: "99",
+        createdAt: "Sun Sep 99 2020 08:51:54 GMT-0600 (Mountain Daylight Time)",
+        category: "TESTDUMMY",
+        subject: "Commonly asked JavaScript Interview Questions",
+        question: "What is JavaScript(JS)?",
+        answer: "JavaScript is a lightweight, interpreted programming language with object-oriented capabilities that allows you to build interactivity into otherwise static HTML pages.",
+        amountOfFlips: "0"
+      }
+    )
+  }
 
   return (
     <div className={classes.root} noValidate autoComplete="off">
@@ -28,7 +46,7 @@ export default function CreateFlashcard() {
           required
           id="catagory"
           label="catagory"
-          // placeholder="Placeholder"
+          placeholder={catagory}
           multiline
           variant="outlined"
         />
@@ -58,7 +76,7 @@ export default function CreateFlashcard() {
           multiline
           variant="outlined"
         />
-        <Button>add flashcard</Button>
+        <Button onClick={handleSubmission}>add flashcard</Button>
       </form>
     </div>
   );
