@@ -15,13 +15,13 @@ configure({ adapter: new Adapter() });
 describe('Flashcard Component', () => {
   // dummy
   const testCard = {
-    id: 1,
-    createdAt: "2018-8-3 11:12:40",
-    category: 'math',
-    subject: 'addition',
-    question: 'what is 1 plus 2 ?',
-    answer: '3',
-    multipleChoice: ['2', '3', '4', '5']
+    flashcardId: "99",
+    createdAt: "Sun Sep 99 2020 08:51:54 GMT-0600 (Mountain Daylight Time)",
+    category: "TESTDUMMY",
+    subject: "Commonly asked JavaScript Interview Questions",
+    question: "What is JavaScript(JS)?",
+    answer: "JavaScript is a lightweight, interpreted programming language with object-oriented capabilities that allows you to build interactivity into otherwise static HTML pages.",
+    amountOfFlips: "0"
   }
 
   // start tests
@@ -67,7 +67,7 @@ describe('Flashcard Component', () => {
     });
     test('the button is the question', () => {
       const wrapper = component.find('.makeStyles-answerButton-4')
-      expect(wrapper.text()).toBe("what is 1 plus 2 ?")
+      expect(wrapper.text()).toBe(testCard.question)
     })
     test('Flashcard turn count starts at 0', () => {
       const wrapper = component.find('.makeStyles-counter-6')
