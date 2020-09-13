@@ -25,6 +25,7 @@ export default function CreateFlashcard() {
     <div className={classes.root} noValidate autoComplete="off">
       <form className={classes.form}>Form
         <TextField className={classes.catagory}
+        required
           id="catagory"
           label="catagory"
           // placeholder="Placeholder"
@@ -32,6 +33,7 @@ export default function CreateFlashcard() {
           variant="outlined"
         />
         <TextField className={classes.subject}
+        required
           id="subject"
           label="subject"
           // placeholder="Placeholder"
@@ -39,6 +41,7 @@ export default function CreateFlashcard() {
           variant="outlined"
         />
         <TextField className={classes.question}
+        required
           id="question"
           label="question"
           // placeholder="Placeholder"
@@ -46,6 +49,7 @@ export default function CreateFlashcard() {
           variant="outlined"
         />
         <TextField className={classes.answer}
+        required
           id="answer"
           label="answer"
           // placeholder="Placeholder"
