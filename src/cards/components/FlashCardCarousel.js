@@ -1,5 +1,5 @@
 import React from 'react'
-import MyCardsList from './MyCardsList';
+import FlashcardsList from './FlashcardsList';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core/';
@@ -32,7 +32,7 @@ function FlashCardCarousel({ myFlashcards }) {
         <GridList className={classes.cardCarousel} cols={1.5}>
           <Grid container spacing={6}><h3>My flashcard stack 001 - september 11th</h3>
             <Grid item xs={12} className={classes.border}>
-              <MyCardsList myFlashcards={myFlashcards} />
+              <FlashcardsList myFlashcards={myFlashcards} />
             </Grid>
           </Grid>
         </GridList>

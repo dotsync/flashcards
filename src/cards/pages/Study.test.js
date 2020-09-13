@@ -8,7 +8,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-describe('Cards Page', () => {
+describe('Study Page', () => {
   let totalBasicTestsPerformed = 0;
 
   // unfulfilled tests
