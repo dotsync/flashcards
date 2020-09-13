@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, TextField, Form } from '@material-ui/core'
+import { Button, TextField } from '@material-ui/core'
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -55,7 +55,7 @@ export default function CreateFlashcard() {
   }
   return (
     <div className={classes.root} noValidate autoComplete="off">
-      <Form className={classes.form}>Form
+      <form className={classes.form}>Form
         <TextField className={classes.catagory}
           required
           id="catagory"
@@ -95,7 +95,7 @@ export default function CreateFlashcard() {
           variant="outlined"
         />
         <Button onClick={handleSubmission}>add flashcard</Button>
-      </Form>
+      </form>
     </div>
   );
 }
