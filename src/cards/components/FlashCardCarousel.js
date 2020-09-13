@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core/';
 import GridList from '@material-ui/core/GridList';
 
-
 const useStyles = makeStyles((theme) => ({
   cardCarousel: {
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
@@ -14,13 +13,14 @@ const useStyles = makeStyles((theme) => ({
     margin: '5px',
     height: '460px',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
+    maxWidth: 'sm'
   },
-border: {
-  display: 'flex',
-  'justify-content': 'center',
-  border: '3px solid green',
-}
+  border: {
+    display: 'flex',
+    'justify-content': 'center',
+    border: '3px solid green',
+  }
 }));
 
 function FlashCardCarousel({ myFlashcards }) {
