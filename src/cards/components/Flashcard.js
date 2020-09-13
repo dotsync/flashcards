@@ -7,37 +7,39 @@ const useStyles = makeStyles((theme) => ({
   root: {
     height: '400px',
     width: '700px',
-    'text-align': 'center',
+    // border: '3px solid red',
   },
   category: {
-    'font-size': 12,
-
+    // border: '3px solid green',
+    width: '100%',
   },
   subject: {
-    'font-size': 12,
+    // border: '3px solid green',
+    position: 'absolute',
   },
   answerButton: {
-    'border-radius': '25px',
-    'border-style': 'thin',
-    'border-width': '5px',
-    'text-align': 'center',
+    display: 'flex',
+    'justify-content': 'center',
+    // border: '3px solid green',
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
   },
   question: {
-    'font-size': 30,
-    'margin-top': '70px',
-    'margin-bottom': '100px'
+    // 'font-size': 20,
+    // 'margin-top': '70px',
+    // 'margin-bottom': '100px'
   },
   counter: {
-
-
+    'texr-align': 'bottom'
   },
-  border: {
-    // width: '100%', /* Can be in percentage also. */
-    // height: '100%',
-    margin: '0 auto',
-    padding: '10px',
+  topBar: {
+    display: 'flex',
+    'justify-content': 'center',
+    // border: '3px solid red',
     position: 'relative',
-    overflow: 'auto',
+    height: '20%',
+    width: '100%',
   }
 }));
 
@@ -49,7 +51,6 @@ export default function Flashcard({ myFlashcards }) {
   const [card, setCard] = useState(myFlashcards.question)
 
   const handleQuestionClick = () => {
-    // e.preventDefault();
     if (questionAsked === true) {
       setCount(count + 1);
       setCard(myFlashcards.answer)
@@ -64,7 +65,8 @@ export default function Flashcard({ myFlashcards }) {
     // else create flashcard with data
     return (
       <div className={classes.root}>
-        <Grid container spacing={4} className={classes.border}>
+
+        <Grid container className={classes.topBar}>
           <Grid item xs={1} className={classes.category}>
             Catagory: {myFlashcards.category}
           </Grid>
@@ -73,16 +75,19 @@ export default function Flashcard({ myFlashcards }) {
             Subject: {myFlashcards.subject}
           </Grid>
         </Grid>
-        <Button className={classes.answerButton} onClick={handleQuestionClick}>
-          {!card ? setCard(myFlashcards.question) :
-            <Grid item
-              className={classes.question}>
-              {card}
-            </Grid>
-          }
-        </Button>
+
         <Grid container>
-          <Grid item xs={12} className={classes.counter}>{count}</Grid>
+          <Button className={classes.answerButton} onClick={handleQuestionClick}>
+            {!card ? setCard(myFlashcards.question) :
+              <Grid item
+                className={classes.question}>
+                {card}
+              </Grid>}
+          </Button>
+        </Grid>
+
+        <Grid container>
+          <Grid item xs={12} className={classes.counter}><u>You flipped the card this many times:</u> {count}</Grid>
         </Grid>
       </div>
     )

@@ -2,8 +2,23 @@ import React, { useState, useEffect } from 'react'
 
 import FlashCardCarousel from '../components/FlashCardCarousel';
 
+import { makeStyles } from '@material-ui/core/styles';
+import { Grid } from '@material-ui/core/';
+import GridList from '@material-ui/core/GridList';
+
+const useStyles = makeStyles((theme) => ({
+  study: {
+    border: '3px solid red',
+    width: '100%',
+    height: '80%',
+    margin: 'auto',
+  }
+}));
+
 export default function Study() {
   const [myFlashcards, setMyFlashcards] = useState([])
+
+  const classes = useStyles();
 
   useEffect(() => {
     async function fetchReviews() {
@@ -21,10 +36,10 @@ export default function Study() {
 
 
   return (
-    <div>
-      <h1>Cards</h1>
+    <div className={classes.study}>
+      <h1>Study</h1>
       {console.log('myFlashcards', myFlashcards)}
-      <FlashCardCarousel myFlashcards={myFlashcards}/>
+      <FlashCardCarousel myFlashcards={myFlashcards} />
     </div>
   )
 }
