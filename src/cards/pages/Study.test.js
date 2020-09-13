@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Cards from './Cards';
+import Study from './Study';
 
 // enzyme config
 import { configure, shallow } from 'enzyme';
@@ -15,6 +15,3 @@ describe('Cards Page', () => {
   test('It has a MyCardsList component', () => {})
   test('It has a MyCardsSearchBar component', () => {})
 });
-// store your own cards, shareing is more than an MVP goal
-// i never get shout outs, why? I keep to myself i dont like people
-

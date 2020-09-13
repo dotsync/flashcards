@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import FlashCardCarousel from '../components/FlashCardCarousel';
 
-export default function Cards() {
+export default function Study() {
   const [myFlashcards, setMyFlashcards] = useState([])
 
   useEffect(() => {
@@ -12,12 +12,10 @@ export default function Cards() {
         console.log('response', response)
         const flashcards = await response.json();
         setMyFlashcards(flashcards);
-        console.log('flashcards', flashcards)
       } catch (err) {
         console.log(`Uh-oh there was an error trying to receive the flashcards list: ${err}`);
       }
     }
-    // call immediatly
     fetchReviews();
   }, []);
 
@@ -25,6 +23,7 @@ export default function Cards() {
   return (
     <div>
       <h1>Cards</h1>
+      {console.log('myFlashcards', myFlashcards)}
       <FlashCardCarousel myFlashcards={myFlashcards}/>
     </div>
   )
