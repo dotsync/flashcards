@@ -5,33 +5,34 @@ import { Button, Grid } from '@material-ui/core/';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+
     height: '400px',
-    width: '700px',
-    // border: '3px solid red',
-  },
-  category: {
-    // border: '3px solid green',
     width: '100%',
   },
+  catagory: {
+    display: 'flex',
+    'justify-content': 'center',
+  },
   subject: {
-    // border: '3px solid green',
-    position: 'absolute',
+    display: 'flex',
+    'justify-content': 'center',
   },
   answerButton: {
     display: 'flex',
     'justify-content': 'center',
-    // border: '3px solid green',
-    position: 'absolute',
-    height: '100%',
+    position: 'relative',
+    height: '300px',
     width: '100%',
   },
   question: {
-    // 'font-size': 20,
+    'font-size': 20,
     // 'margin-top': '70px',
     // 'margin-bottom': '100px'
   },
   counter: {
-    'texr-align': 'bottom'
+    display: 'flex',
+    'justify-content': 'center',
+    'text-align': 'bottom'
   },
   topBar: {
     display: 'flex',
@@ -67,13 +68,10 @@ export default function Flashcard({ myFlashcards }) {
       <div className={classes.root}>
 
         <Grid container className={classes.topBar}>
-          <Grid item xs={1} className={classes.category}>
+          <Grid item xs={12} className={classes.catagory}>
             Catagory: {myFlashcards.category}
           </Grid>
-          <Grid item xs={9}></Grid>
-          <Grid item xs={1} className={classes.subject}>
-            Subject: {myFlashcards.subject}
-          </Grid>
+          <Grid item xs={12} className={classes.subject}>Subject: {myFlashcards.subject}</Grid>
         </Grid>
 
         <Grid container>
@@ -87,7 +85,8 @@ export default function Flashcard({ myFlashcards }) {
         </Grid>
 
         <Grid container>
-          <Grid item xs={12} className={classes.counter}><u>You flipped the card this many times:</u> {count}</Grid>
+          <Grid item xs={10} className={classes.counter}>You flipped the card this many times: {count}</Grid>
+          <Grid iutem xs={2} className={classes.remove}>remove</Grid>
         </Grid>
       </div>
     )

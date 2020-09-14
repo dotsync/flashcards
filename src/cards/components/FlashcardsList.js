@@ -7,10 +7,7 @@ import { GridListTile, Container } from '@material-ui/core/';
 
 
 const useStyles = makeStyles((theme) => ({
-  border: {
-    // border: '3px solid red',
-    height: '400px'
-  },
+
   card: {
     background: 'white',
     margin: '5px',
