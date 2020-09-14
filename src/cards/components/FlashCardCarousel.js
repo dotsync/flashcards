@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     transform: 'translateZ(0)',
     background: '#00BFFF',
     margin: '5px',
-    height: '80%',
+    height: '100%',
     justifyContent: 'space-around',
     alignItems: 'center',
     border: '5px solid black',
@@ -21,8 +21,6 @@ const useStyles = makeStyles((theme) => ({
     height: '95%',
     position: 'relative',
   },
-  border: {
-  }
 }));
 
 function FlashCardCarousel({ myFlashcards }) {
@@ -32,11 +30,7 @@ function FlashCardCarousel({ myFlashcards }) {
       <div className={classes.["card-carousel-border"]}>Flashcards list
         {/* Create carousel for flashcards*/}
         <GridList className={classes.["grid-list"]} cols={1.5}>
-          <Grid container className={classes.border} spacing={6}>
-            <Grid item xs={12}>
-              <FlashcardsList myFlashcards={myFlashcards} />
-            </Grid>
-          </Grid>
+          <FlashcardsList myFlashcards={myFlashcards} />
         </GridList>
       </div>
     )
