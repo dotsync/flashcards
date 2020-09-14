@@ -17,7 +17,7 @@ describe('Flashcard Component', () => {
   const testCard = {
     flashcardId: "99",
     createdAt: "Sun Sep 99 2020 08:51:54 GMT-0600 (Mountain Daylight Time)",
-    category: "TESTDUMMY",
+    catagory: "Coding questions",
     subject: "Commonly asked JavaScript Interview Questions",
     question: "What is JavaScript(JS)?",
     answer: "JavaScript is a lightweight, interpreted programming language with object-oriented capabilities that allows you to build interactivity into otherwise static HTML pages.",
@@ -48,7 +48,7 @@ describe('Flashcard Component', () => {
   describe('It renders a complete Flashcard using dummy myFlashcard', () => {
     test('myFlashcard renders a category', () => {
       const wrapper = component.find('.makeStyles-catagory-2')
-      expect(wrapper.text()).toBe(`Catagory: ${testCard.category}`)
+      expect(wrapper.text()).toBe(`Catagory: ${testCard.catagory}`)
     });
     test('myFlashcard renders a subject', () => {
       const wrapper = component.find('.makeStyles-subject-3')
