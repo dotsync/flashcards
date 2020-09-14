@@ -2,7 +2,6 @@ import React from 'react'
 import FlashcardsList from './FlashcardsList';
 
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core/';
 import GridList from '@material-ui/core/GridList';
 
 const useStyles = makeStyles((theme) => ({
@@ -11,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     transform: 'translateZ(0)',
     background: '#00BFFF',
     margin: '5px',
-    height: '100%',
+    height: '80%',
     justifyContent: 'space-around',
     alignItems: 'center',
     border: '5px solid black',

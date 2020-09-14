@@ -47,7 +47,7 @@ describe('Flashcard Component', () => {
   // start tests
   describe('It renders a complete Flashcard using dummy myFlashcard', () => {
     test('myFlashcard renders a category', () => {
-      const wrapper = component.find('.makeStyles-category-2')
+      const wrapper = component.find('.makeStyles-catagory-2')
       expect(wrapper.text()).toBe(`Catagory: ${testCard.category}`)
     });
     test('myFlashcard renders a subject', () => {
@@ -83,8 +83,9 @@ describe('Flashcard Component', () => {
       expect(component.find('.makeStyles-answerButton-4').text()).toBe(testCard.answer)
     });
     test('should have a button to delete the flashcard', () => {
-      const wrapper = component.find('.makeStyles-delete-flashcard-7')
-      expect(wrapper.text()).toBe('delete flashcard')
+      // console.log('SHOW', component.debug())
+      const wrapper = component.find('.makeStyles-remove-8')
+      expect(wrapper.text()).toBe('remove')
     });
     // test('It has a button to like card', () => { })
     // test('It has a button to display hints', () => { })

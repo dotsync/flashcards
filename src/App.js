@@ -4,16 +4,13 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 // routes
 import Users from "./users/pages/Users";
 //stdy
-import Cards from "./cards/pages/Study";
+import Study from "./cards/pages/Study";
 
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core/';
-import GridList from '@material-ui/core/GridList';
 
 const useStyles = makeStyles((theme) => ({
   app: {
     border: '3px solid green',
-    position: 'relative',
     height: '100vh',
     width: '100%',
   }
@@ -30,7 +27,7 @@ export default function App() {
         <Switch>
           {/* //stdy */}
           <Route path="/study" >
-            <Cards />
+            <Study />
           </Route>
           <Route path="/users" >
             <Users />
