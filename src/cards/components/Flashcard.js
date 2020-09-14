@@ -64,6 +64,9 @@ export default function Flashcard({ myFlashcards }) {
       setCard(myFlashcards.question)
     }
   }
+  const handleRemoveFlashcard = () => {
+    console.log('u clicked remove')
+  }
   // check for data
   if (!myFlashcards) { return <div>no flashcard passed</div> } else {
     // else create flashcard with data
@@ -86,12 +89,8 @@ export default function Flashcard({ myFlashcards }) {
               </Grid>}
           </Button>
                     <Grid item xs={10} className={classes.counter}>You flipped the card this many times: {count}</Grid>
-          <Grid item xs={2} className={classes.remove}><Button>remove</Button></Grid>
+          <Grid item xs={2} className={classes.remove}><Button onClick={handleRemoveFlashcard}>remove</Button></Grid>
         </Grid>
-
-        {/* <Grid container> */}
-
-        {/* </Grid> */}
       </div>
     )
   }
