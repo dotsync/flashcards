@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, TextField } from '@material-ui/core'
+import { TextField } from '@material-ui/core'
+import Button from '@material-ui/core/Button'
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -12,6 +13,10 @@ const useStyles = makeStyles((theme) => ({
   },
   catagory: {
     // border: '3px solid red',
+  },
+  submit :{
+    width: '100%',
+    height: '100%',
   },
 }));
 export default function CreateFlashcard() {
@@ -94,7 +99,11 @@ export default function CreateFlashcard() {
           multiline
           variant="outlined"
         />
-        <Button onClick={handleSubmission}>add flashcard</Button>
+        <Button className={classes.submit}
+          onClick={handleSubmission}
+          variant="contained"
+          color="secondary"
+        >Add flashcard</Button>
       </form>
     </div>
   );
