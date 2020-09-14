@@ -29,7 +29,7 @@ describe('CreateFlashcard component', () => {
     test('should render a form', () => {
       console.log('FORM', component.debug())
       const wrapper = component.find('.makeStyles-form-2');
-      expect(wrapper.text()).toBe('Form');
+      expect(wrapper.text()).toBe('Add flashcard');
     });
     test('should have a catagory field', () => {
       const wrapper = component.find('#catagory');
@@ -59,3 +59,5 @@ describe('CreateFlashcard component', () => {
     });
   });
 });
+
+// make list appear nad deissapear by comand, this is first step in sorting, turning one item on and off based on its subject property. The will all be code for now
