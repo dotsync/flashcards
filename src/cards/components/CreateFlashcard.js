@@ -9,10 +9,8 @@ const useStyles = makeStyles((theme) => ({
     border: '3px solid black',
   },
   form: {
-    // border: '3px solid blue',
   },
   catagory: {
-    // border: '3px solid red',
   },
   submit :{
     width: '100%',
@@ -21,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function CreateFlashcard() {
   const classes = useStyles();
-  const [catagory, setCatagory] = useState('');
-  const [subject, setSubject] = useState('');
+  const [catagory, setCatagory] = useState('Code');
+  const [subject, setSubject] = useState('Commonly asked JavaScript Interview Questions');
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
 
@@ -60,7 +58,7 @@ export default function CreateFlashcard() {
   }
   return (
     <div className={classes.root} noValidate autoComplete="off">
-      <form className={classes.form}>Form
+      <form className={classes.form}>
         <TextField className={classes.catagory}
           required
           id="catagory"
