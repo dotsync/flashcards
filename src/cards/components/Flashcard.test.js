@@ -71,31 +71,21 @@ describe('Flashcard Component', () => {
     })
     test('Flashcard turn count starts at 0', () => {
       const wrapper = component.find('.makeStyles-counter-6')
-      expect(wrapper.text()).toBe('You flipped the card this many times: 0')
+      expect(wrapper.text()).toBe('You flipped the card this many times: 0');
     })
-    test('Flash card count increases by 1 when flipped from question side', () => {
+    test('Flashcard count increases by 1 when flipped from question side', () => {
       component.find('.makeStyles-answerButton-4').simulate('click')
       expect(component.find('.makeStyles-counter-6').text()).toBe('You flipped the card this many times: 1')
     })
-    test('Flash card should flip to answer side when flipped from question side', () => {
+    test('Flashcard should flip to answer side when flipped from question side', () => {
       component.find('.makeStyles-answerButton-4').simulate('click')
       // should flip to answer side when clicked
       expect(component.find('.makeStyles-answerButton-4').text()).toBe(testCard.answer)
-    })
-    // test('Flash card count NOT increase when flipped from answer side', () => {
-    //   component.find('.makeStyles-answerButton-4').simulate('click')
-    //   expect(component.find('.makeStyles-counter-6').text()).toBe('1')
-    // })
-
-    // // simulate click
-    // test('Flashcard turn count increases when flipped from question side', () => {
-    //   const wrapper = component.find('.makeStyles-counter-6').simulate('click')
-    //   expect(wrapper.text()).toBe("Times visited: 1")
-    // })
-    // test('Flashcard turn count does NOT increase when flipped from answer side', () => {
-    //   const wrapper = component.find('.makeStyles-counter-6')
-    //   expect(wrapper.text()).toBe("0")
-    // })
+    });
+    test('should have a button to delete the flashcard', () => {
+      const wrapper = component.find('.makeStyles-delete-flashcard-7')
+      expect(wrapper.text()).toBe('delete flashcard')
+    });
     // test('It has a button to like card', () => { })
     // test('It has a button to display hints', () => { })
   });
