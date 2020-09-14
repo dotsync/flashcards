@@ -7,8 +7,6 @@ import Users from "./users/pages/Users";
 import Study from "./cards/pages/Study";
 
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core/';
-import GridList from '@material-ui/core/GridList';
 
 const useStyles = makeStyles((theme) => ({
   app: {

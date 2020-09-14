@@ -4,8 +4,6 @@ import FlashCardCarousel from '../components/FlashCardCarousel';
 import CreateFlashcard from '../components/CreateFlashcard';
 
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core/';
-import GridList from '@material-ui/core/GridList';
 
 const useStyles = makeStyles((theme) => ({
   study: {

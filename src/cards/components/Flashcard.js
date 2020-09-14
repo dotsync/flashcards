@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -72,7 +72,7 @@ export default function Flashcard({ myFlashcards }) {
     console.log('u clicked remove')
     // check if id is object
 
-    // axios.delete(`http://localhost:3001/flashcards/${myFlashcards._id}`,{ '_id': myFlashcards._id } })
+    axios.delete(`http://localhost:3001/flashcards/${myFlashcards._id}`,{ '_id': myFlashcards._id })
     //   .then((data) => {
     //     console.log(data.request)
     //   })
