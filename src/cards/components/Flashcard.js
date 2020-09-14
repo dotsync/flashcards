@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Grid } from '@material-ui/core/';
@@ -64,9 +65,31 @@ export default function Flashcard({ myFlashcards }) {
       setCard(myFlashcards.question)
     }
   }
+
+  // console.log(`${myFlashcards._id} flashcard id from client console`);
   const handleRemoveFlashcard = () => {
+    // if (typeof myFlashcards._id !== 'Object') myFlashcards._id = mongoose.Types.ObjectId();
     console.log('u clicked remove')
+    // check if id is object
+
+    // axios.delete(`http://localhost:3001/flashcards/${myFlashcards._id}`,{ '_id': myFlashcards._id } })
+    //   .then((data) => {
+    //     console.log(data.request)
+    //   })
+    //   .catch((err) => {
+    //     console.log(err)
+    //   })
+    // console.log('u clicked removeeeeeeee', myFlashcards._id)
   }
+
+
+
+
+
+
+
+
+
   // check for data
   if (!myFlashcards) { return <div>no flashcard passed</div> } else {
     // else create flashcard with data
@@ -79,7 +102,6 @@ export default function Flashcard({ myFlashcards }) {
           </Grid>
           <Grid item xs={12} className={classes.subject}>Subject: {myFlashcards.subject}</Grid>
         </Grid>
-
         <Grid container>
           <Button className={classes.answerButton} onClick={handleQuestionClick}>
             {!card ? setCard(myFlashcards.question) :
@@ -88,7 +110,7 @@ export default function Flashcard({ myFlashcards }) {
                 {card}
               </Grid>}
           </Button>
-                    <Grid item xs={10} className={classes.counter}>You flipped the card this many times: {count}</Grid>
+          <Grid item xs={10} className={classes.counter}>You flipped the card this many times: {count}</Grid>
           <Grid item xs={2} className={classes.remove}><Button onClick={handleRemoveFlashcard}>remove</Button></Grid>
         </Grid>
       </div>
