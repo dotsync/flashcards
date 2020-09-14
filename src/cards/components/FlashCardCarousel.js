@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     transform: 'translateZ(0)',
     background: '#00BFFF',
     margin: '5px',
-    height: '100%',
+    height: '80%',
     justifyContent: 'space-around',
     alignItems: 'center',
     border: '5px solid black',

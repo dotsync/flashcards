@@ -5,8 +5,7 @@ import { Button, Grid } from '@material-ui/core/';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-
-    height: '400px',
+    height: '450px',
     width: '100%',
   },
   catagory: {
@@ -41,7 +40,11 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     height: '20%',
     width: '100%',
-  }
+  },
+  remove: {
+    display: 'flex',
+    'justify-content': 'center',
+  },
 }));
 
 export default function Flashcard({ myFlashcards }) {
@@ -82,12 +85,13 @@ export default function Flashcard({ myFlashcards }) {
                 {card}
               </Grid>}
           </Button>
+                    <Grid item xs={10} className={classes.counter}>You flipped the card this many times: {count}</Grid>
+          <Grid item xs={2} className={classes.remove}><Button>remove</Button></Grid>
         </Grid>
 
-        <Grid container>
-          <Grid item xs={10} className={classes.counter}>You flipped the card this many times: {count}</Grid>
-          <Grid iutem xs={2} className={classes.remove}>remove</Grid>
-        </Grid>
+        {/* <Grid container> */}
+
+        {/* </Grid> */}
       </div>
     )
   }
