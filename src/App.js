@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import Appbar from './shared/components/Appbar'
 
 // routes
 import Users from "./users/pages/Users";
@@ -10,9 +11,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   app: {
-    border: '3px solid green',
-    height: '100vh',
+    // border: '3px solid green',
+    height: '170vh',
     width: '100%',
+    'background-color': 'pink',
+
   }
 }));
 
@@ -22,7 +25,7 @@ export default function App() {
   const classes = useStyles();
   return (
     <div className={classes.app}>
-      <nav><h1>navbar goes here</h1></nav>
+      <Appbar></Appbar>
       <Router>
         <Switch>
           {/* //stdy */}

@@ -6,18 +6,25 @@ import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    margin: '50px',
+    'background-color': '#AFF9C9',
+    border: '3px solid white',
+    'padding-top': '10px',
+    'padding-left': '5px',
+    'padding-right': '5px',
+    'border-radius': '25px',
+    height: '200px',
     border: '3px solid black',
   },
   form: {
-    // border: '3px solid blue',
   },
   catagory: {
-    // border: '3px solid red',
   },
-  submit :{
-    width: '100%',
-    height: '100%',
-  },
+  submit: {
+    height: '55px',
+
+  }
+
 }));
 export default function CreateFlashcard() {
   const classes = useStyles();
@@ -60,7 +67,7 @@ export default function CreateFlashcard() {
   }
   return (
     <div className={classes.root} noValidate autoComplete="off">
-      <form className={classes.form}>Form
+      <form className={classes.form}>
         <TextField className={classes.catagory}
           required
           id="catagory"
@@ -79,6 +86,10 @@ export default function CreateFlashcard() {
           multiline
           variant="outlined"
         />
+        <Button className={classes.submit}
+          onClick={handleSubmission}
+          variant="contained"
+        >Add flashcard</Button>
         <TextField className={classes.question}
           required
           fullWidth
@@ -99,11 +110,6 @@ export default function CreateFlashcard() {
           multiline
           variant="outlined"
         />
-        <Button className={classes.submit}
-          onClick={handleSubmission}
-          variant="contained"
-          color="secondary"
-        >Add flashcard</Button>
       </form>
     </div>
   );
