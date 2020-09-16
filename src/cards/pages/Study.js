@@ -4,13 +4,15 @@ import FlashCardCarousel from '../components/FlashCardCarousel';
 import CreateFlashcard from '../components/CreateFlashcard';
 
 import { makeStyles } from '@material-ui/core/styles';
+import image from './mosaic-2721425_1920.jpg'
 
 const useStyles = makeStyles((theme) => ({
   study: {
     // border: '3px solid red',
     width: '100%',
-    height: '80%',
+    height: '100%',
     margin: 'auto',
+    'background-image': `url(${image})`,
   }
 }));
 
@@ -32,10 +34,8 @@ export default function Study() {
     }
     fetchReviews();
   }, []);
-
   return (
     <div className={classes.study}>
-      <h1>Study</h1>
       <FlashCardCarousel myFlashcards={myFlashcards} />
       <CreateFlashcard />
     </div>

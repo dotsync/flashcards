@@ -6,21 +6,30 @@ import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    margin: '50px',
+    'background-color': '#AFF9C9',
+    border: '3px solid white',
+    'padding-top': '10px',
+    'padding-left': '5px',
+    'padding-right': '5px',
+    'border-radius': '25px',
+    height: '200px',
     border: '3px solid black',
   },
   form: {
   },
   catagory: {
   },
-  submit :{
-    width: '100%',
-    height: '100%',
-  },
+  submit: {
+    height: '55px',
+
+  }
+
 }));
 export default function CreateFlashcard() {
   const classes = useStyles();
-  const [catagory, setCatagory] = useState('Code');
-  const [subject, setSubject] = useState('Commonly asked JavaScript Interview Questions');
+  const [catagory, setCatagory] = useState('');
+  const [subject, setSubject] = useState('');
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
 
@@ -77,6 +86,10 @@ export default function CreateFlashcard() {
           multiline
           variant="outlined"
         />
+        <Button className={classes.submit}
+          onClick={handleSubmission}
+          variant="contained"
+        >Add flashcard</Button>
         <TextField className={classes.question}
           required
           fullWidth
@@ -97,11 +110,6 @@ export default function CreateFlashcard() {
           multiline
           variant="outlined"
         />
-        <Button className={classes.submit}
-          onClick={handleSubmission}
-          variant="contained"
-          color="secondary"
-        >Add flashcard</Button>
       </form>
     </div>
   );
